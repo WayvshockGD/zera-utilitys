@@ -1,0 +1,14 @@
+{
+  "name": "@zera/utilitys",
+  "version": "1.0.0",
+  "description": "The core utilitys for the bot zera",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wayv",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "eris": "^0.14.0"
+  }
+}
