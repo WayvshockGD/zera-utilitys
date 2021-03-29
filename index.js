@@ -1,3 +1,4 @@
 module.exports = {
-    Resolver: require('./lib/Resolvers')
+    Resolver: require('./lib/Resolvers'),
+    Moderaton: require('./lib/Moderation')
 }
