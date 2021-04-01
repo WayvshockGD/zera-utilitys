@@ -14,12 +14,12 @@ client.on('messageCreate', async (message) => {
     const cmd = args?.shift()?.toLowerCase();
 
     if(cmd === 'test') {
-        let user = Resolvers.getUser(args.join(' '), message, message.channel.guild, client);
+        let user = await Resolvers.getUser(args.join(' '), message, message.channel.guild, client);
         if(!user) return message.channel.createMessage('That user was not found.');
 
-        message.channel.createMessage({
+        await message.channel.createMessage({
             embed: {
-                image: { url: user.dynamicAvatarURL('png', 256) }
+                image: {url: user.dynamicAvatarURL('png', 256)}
             }
         });
         //console.log(user.discriminator);
@@ -33,9 +33,11 @@ client.on('messageCreate', async (message) => {
 
         message.channel.createMessage(`${c.id}`)
     } else if (cmd === 'testmem') {
-        let member = Resolvers.getMember(message.channel.guild, message, args.join(' '));
+        let member = await Resolvers.getMember(message.channel.guild, message, args.join(' '), true, client);
         if(!member) return message.channel.createMessage('There is no user as that name or id.')
         let roles = [];
+
+        //console.log(member.username)
 
         for (let r of member.roles) {
             roles.push(`<@&${r}>`);
